@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  seata:
+    image: romeoblog/seata-server:0.7.1
+    container_name: seata-server
+    environment:
+      - MODE=standalone
+      - "--storeMode=db"
+      - "--host=192.168.2.48"
+    volumes:
+      - ../data/seata-server/logs/:/root/logs/seata
+    ports:
+      - "8091:8091"
