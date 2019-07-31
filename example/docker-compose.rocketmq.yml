@@ -41,7 +41,9 @@ services:
     ports:
       - 8070:8080
     environment:
-      JAVA_OPTS: "-Drocketmq.config.namesrvAddr=namesrv:9876 -D"
+      JAVA_OPTS: "-Drocketmq.config.namesrvAddr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+    volumes:
+      - ../data/consolelogs:/root/logs/consolelogs
     depends_on:
       - namesrv
     networks:
