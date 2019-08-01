@@ -8,11 +8,15 @@ services:
       - 9200:9200
       - 9300:9300
     environment:
+      #- cluster.name=es-cluster
       - discovery.type=single-node
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    network_mode: host
     volumes:
-      - ../data/elasticsearch/data:/data
+      #- ../data/elasticsearch/data:/data
+      - esdata:/usr/share/elasticsearch/data
+      #- ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ulimits:
       memlock:
         soft: -1
@@ -43,3 +47,6 @@ services:
       - 8080:8080
     environment:
       SW_OAP_ADDRESS: oap:12800
+
+volumes:
+  esdata:

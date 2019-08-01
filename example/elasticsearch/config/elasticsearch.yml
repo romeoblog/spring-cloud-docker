@@ -1,0 +1,6 @@
+cluster.name: "es-cluster"
+node.name: "es-node1"
+network.host: 0.0.0.0
+network.publish_host: 192.168.2.48
+discovery.zen.minimum_master_nodes: 1
+discovery.zen.ping.unicast.hosts: ["192.168.2.48:9400", "192.168.2.48:9500"]
