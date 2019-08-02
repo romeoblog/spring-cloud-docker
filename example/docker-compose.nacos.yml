@@ -16,7 +16,7 @@ services:
     volumes:
       - ../data/nacos-server/logs/:/home/nacos/logs
     ports:
-      - "8848:8848"
+      - 8848:8848
 
   prometheus:
     container_name: prometheus
@@ -24,7 +24,7 @@ services:
     volumes:
       - ./prometheus/prometheus-standalone.yaml:/etc/prometheus/prometheus.yml
     ports:
-      - "9090:9090"
+      - 9090:9090
     depends_on:
       - nacos
     restart: on-failure
